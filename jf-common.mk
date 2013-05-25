@@ -162,4 +162,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
-
