@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2012 The Android Open-Source Project
+# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2013 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +15,11 @@
 # limitations under the License.
 #
 
-# WARNING: Everything listed here will be built on ALL platforms,
-# including x86, the emulator, and the SDK.  Modules must be uniquely
-# named (liblights.tuna), and must build everywhere, or limit themselves
-# to only building on ARM if they include assembly. Individual makefiles
-# are responsible for having their own logic, for fine-grained control.
-
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(BOARD_VENDOR),samsung)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
-ifneq ($(filter jflteatt jfltespr jfltetmo jfltevzw i9505 jfltecan,$(TARGET_DEVICE)),)
+ifneq ($(filter jflteatt jfltespr jfltetmo jfltevzw jfltexx jfltecan,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
 endif

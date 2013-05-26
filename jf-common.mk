@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2013 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,8 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 ## (2) Also get non-open-source specific aspects if available
 $(call inherit-product-if-exists, vendor/samsung/jf-common/jf-common-vendor.mk)
@@ -88,7 +87,7 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-# NFCEE access control + configuration
+# NFCEE access control
 NFCEE_ACCESS_PATH := device/samsung/jf-common/nfc/nfcee_access.xml
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
@@ -101,7 +100,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
-# Increase the HWUI font cache since we have tons of RAM
+# Increase the HWUI font cache
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048
 
@@ -112,7 +111,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # QRNGD
 PRODUCT_PACKAGES += qrngd
 
-#common build.props
+# common build.props
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.chipname=apq8064 \
     ro.ril.hsxpa=1 \
@@ -161,4 +160,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
 
+# dalvik heapsize
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)

@@ -1,4 +1,6 @@
-# Copyright (C) 2009 The CyanogenMod Project
+#
+# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2013 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,18 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
 USE_CAMERA_STUB := true
 
 # inherit from common msm8960
@@ -34,12 +26,11 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/jf-common/include
 TARGET_KERNEL_SOURCE        := kernel/samsung/jf
 BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom user_debug=31 zcache
 BOARD_KERNEL_BASE           := 0x80200000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
+BOARD_MKBOOTIMG_ARGS        := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE       := 2048
 
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
-# Recovery
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
@@ -54,14 +45,14 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 28651290624
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/jf-common/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/jf-common/bluetooth/vnd_jf.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/jf-common/bluetooth/vnd_jf.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/jf-common/bluetooth
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8960
 
-# Disable initlogo, Samsungs framebuffer is weird
+# Disable initlogo
 TARGET_NO_INITLOGO := true
 
 # Use seperate speakerphone device
@@ -69,4 +60,3 @@ BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 
 # Use USB Dock Audio
 BOARD_HAVE_DOCK_USBAUDIO := true
-
