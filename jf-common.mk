@@ -33,7 +33,8 @@ TARGET_SCREEN_HEIGHT := 1920
 PRODUCT_COPY_FILES += \
     device/samsung/jf-common/audio/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
     device/samsung/jf-common/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    device/samsung/jf-common/audio/audio_effects.conf:system/etc/audio_effects.conf
+    device/samsung/jf-common/audio/audio_effects.conf:system/etc/audio_effects.conf \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
 # Media Profile
 PRODUCT_COPY_FILES += \
@@ -76,10 +77,6 @@ PRODUCT_PACKAGES += \
 # Torch
 PRODUCT_PACKAGES += Torch
 
-# Vold configuration
-PRODUCT_COPY_FILES += \
-    device/samsung/jf-common/vold.fstab:system/etc/vold.fstab
-
 # Wifi
 PRODUCT_PACKAGES += \
     libnetcmdiface \
@@ -107,10 +104,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
-# Increase the HWUI font cache
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.text_cache_width=2048
-
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
@@ -135,7 +128,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=0 \
     ro.sf.lcd_density=480 \
     ro.ril.transmitpower=true \
-    ro.opengles.version=131072 \
+    ro.opengles.version=196608 \
     persist.audio.fluence.mode=endfire \
     persist.audio.vr.enable=false \
     persist.audio.handset.mic=digital \
